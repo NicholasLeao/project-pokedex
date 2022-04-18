@@ -1,0 +1,21 @@
+* {
+  text-decoration: none;
+}
+.pokelist li {
+  list-style: none;
+}
+.pokelist button {
+  width: 200px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.pokelist img {
+  width: 40px;
+}
+.pokelist {
+  height: 70vh;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}

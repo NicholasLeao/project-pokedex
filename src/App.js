@@ -12,13 +12,11 @@ function App() {
   const [pokemonListState, setPokemonListState] = useState([]);
   // === USE EFFECT ===
   useEffect(() => {
-    setLoadListState(true);
     async function fetchPokemon() {
       const response = await axios.get(
         "https://pokeapi.co/api/v2/pokemon?limit=151"
       );
       setPokemonListState(response.data.results);
-      setLoadListState(false);
     }
     fetchPokemon();
   }, []);
@@ -27,10 +25,11 @@ function App() {
   return (
     <div className="App">
       <Searchbar />
-      <Pokelist />
+      <Pokelist pokeList={pokemonListState} />
+
       <Routes>
-        {/* <Route path="/" element={null} />
-        <Route path="/:PokeNumber" element={<Pokemon />} /> */}
+        <Route path="/" element={null} />
+        <Route path="/pokemon/:PokeName" element={<Pokemon />} />
       </Routes>
     </div>
   );
