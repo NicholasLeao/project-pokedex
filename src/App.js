@@ -6,6 +6,7 @@ import "./App.css";
 import Pokelist from "./components/pokelist/Pokelist";
 import Pokemon from "./components/pokemon/Pokemon";
 import Searchbar from "./components/searchbar/Searchbar";
+import Pokefavoritos from "./components/pokefavoritos/Pokefavoritos";
 
 function App() {
   // === STATES ===
@@ -31,6 +32,8 @@ function App() {
         <Route path="/" element={null} />
         <Route path="/pokemon/:PokeName" element={<Pokemon />} />
       </Routes>
+
+      <Pokefavoritos />
     </div>
   );
 }
