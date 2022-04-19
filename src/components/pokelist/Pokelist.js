@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 import styles from "./Pokelist.module.css";
 
 function Pokelist(props) {
-  console.log(props.pokeList);
   return (
     <>
       <ul className={styles.pokelist}>
