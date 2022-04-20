@@ -7,27 +7,25 @@ function Pokefavoritos() {
   let pokemonOnScreen = [];
 
   // === GET FAVORITOS ===
+  const fetchFavoritos = async () => {
+    const response = await axios.get("https://ironrest.herokuapp.com/pokefav");
+    setFavoritos(response.data);
+  };
   useEffect(() => {
-    async function fetchFavoritos() {
-      const response = await axios.get(
-        "https://ironrest.herokuapp.com/pokefav"
-      );
-      setFavoritos(response.data);
-      console.log(response.data);
-    }
     fetchFavoritos();
   }, []);
 
   // === CLICK HANDLER DELETAR ===
-  function handleClickDeletar(e) {
+  async function handleClickDeletar(e) {
     const name = e.target.name;
     for (let pokemon of favoritos) {
       if (pokemon.name === name) {
-        axios.delete(
+        await axios.delete(
           `https://ironrest.herokuapp.com/deleteOne/pokefav?name=${name}`
         );
       }
     }
+    fetchFavoritos();
   }
 
   return (
