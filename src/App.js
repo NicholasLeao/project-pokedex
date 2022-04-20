@@ -6,6 +6,7 @@ import Pokelist from "./components/pokelist/Pokelist";
 import Pokemon from "./components/pokemon/Pokemon";
 import Searchbar from "./components/searchbar/Searchbar";
 import Pokefavoritos from "./components/pokefavoritos/Pokefavoritos";
+import PokedexContainer from "./components/pokedex/PokedexContainer";
 
 function App() {
   // === TOGGLE STATE TO UPDATE FAVORITOS ===
@@ -28,6 +29,7 @@ function App() {
   // === JSX ===
   return (
     <div className="App">
+      <PokedexContainer />
       <Searchbar />
       <Pokelist pokeList={pokemonListState} />
 
