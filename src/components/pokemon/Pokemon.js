@@ -4,19 +4,19 @@ import { useParams, Link } from "react-router-dom";
 import styles from "./Pokemon.modules.css";
 import axios from "axios";
 
-function Pokemon() {
+function Pokemon(props) {
   const [pokeData, setPokeData] = useState({});
   const [evoChain, setEvoChain] = useState([]);
   const pokeName = useParams().PokeName;
-  
 
   // === CLICK HANDLER FAVORITOS ===
-  function clickHandlerFavoritos(e) {
+  async function clickHandlerFavoritos(e) {
     e.preventDefault();
-    axios.post("https://ironrest.herokuapp.com/pokefav", {
+    await axios.post("https://ironrest.herokuapp.com/pokefav", {
       name: pokeData.name,
       id: pokeData.id,
     });
+    props.handleUpdateFavoritos();
   }
 
   // === GET POKEMON DATA ===
