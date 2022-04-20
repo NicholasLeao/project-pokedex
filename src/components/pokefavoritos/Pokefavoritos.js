@@ -19,14 +19,18 @@ function Pokefavoritos(props) {
 
   // === CLICK HANDLER DELETAR ===
   async function handleClickDeletar(e) {
+    const requests = [];
     const name = e.target.name;
     for (let pokemon of favoritos) {
       if (pokemon.name === name) {
-        await axios.delete(
-          `https://ironrest.herokuapp.com/deleteOne/pokefav?name=${name}`
+        requests.push(
+          axios.delete(
+            `https://ironrest.herokuapp.com/deleteOne/pokefav?name=${name}`
+          )
         );
       }
     }
+    const respone = await Promise.all(requests);
     fetchFavoritos();
   }
 
