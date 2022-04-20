@@ -1,3 +1,6 @@
+*{
+  
+}
 :root {
     --main-bg-color: #fe0065;
     --secondary-bg-color: #f2f2f2;
@@ -225,7 +228,7 @@
     justify-content: space-around;
   }
   
-  .small-light {
+  .small-light{
     border: solid black;
     width: 16px;
     height: 16px;
@@ -241,16 +244,24 @@
   }
   
   /* Center Screen */
-  
+  .save{
+    border: 2px solid black;
+    background-color: black;
+    height: auto;
+    width: auto;
+    border-radius: 20%;
+  }
   .screen-container {
+    margin-top: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
   }
   
   .screen {
+    margin-top: 10px;
     width: 150px;
-    height: 150px;
+    height: 240px;
     border: solid black;
     border-radius: 0 0 0 17%;
     display: grid;
@@ -275,14 +286,13 @@
     margin-right: 7px;
   }
   
-  #main-screen {
+  #main-screen .icons {
     height: 100%;
     width: 80%;
     justify-self: center;
     background-color: var(--main-screen-bg-color);
     border: solid black 2px;
     border-radius: 5%;
-    background-image: url(https://assets.pokemon.com/assets/cms2/img/pokedex/full/001.png);
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
@@ -495,6 +505,7 @@
   #right-panel::before {
     content: '';
     position: absolute;
+    z-index: -1;
     left: -3px;
     bottom: 0;
     width: 100%;

@@ -66,16 +66,17 @@ function Pokemon(props) {
       <img
         src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokeData.id}.png`}
         alt="POKEFOTO"
+        className="icons"
       />
       <p>
         {pokeData.name}
-        <span>{pokeData.id}</span>
+        <span> #{pokeData.id}</span>
       </p>
-      <button onClick={clickHandlerFavoritos}>💝</button>
+      <button onClick={clickHandlerFavoritos} className="save">❤️</button>
       <ul>
         {evoChain.map((pokemon) => {
           return (
-            <li key={pokemon}>
+            <li key={pokemon} className="listas">
               <Link to={`/pokemon/${pokemon}`}>{pokemon}</Link>
             </li>
           );
