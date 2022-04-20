@@ -13,7 +13,6 @@ function Pokefavoritos(props) {
   };
 
   useEffect(() => {
-    console.log("fetch");
     fetchFavoritos();
   }, [props.updateFavoritos]);
 
@@ -25,12 +24,13 @@ function Pokefavoritos(props) {
       if (pokemon.name === name) {
         requests.push(
           axios.delete(
-            `https://ironrest.herokuapp.com/deleteOne/pokefav?name=${name}`
+            `https://ironrest.herokuapp.com/deleteOne/pokefav?name=${name}`,
+            
           )
         );
       }
     }
-    const respone = await Promise.all(requests);
+    await Promise.all(requests);
     fetchFavoritos();
   }
 
