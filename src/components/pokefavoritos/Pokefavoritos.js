@@ -4,7 +4,6 @@ import axios from "axios";
 function Pokefavoritos() {
   // === STATE ===
   const [favoritos, setFavoritos] = useState([]);
-  const [deleteFavoritos, setDeleteFavoritos] = useState(false);
   let pokemonOnScreen = [];
 
   // === GET FAVORITOS ===
@@ -18,7 +17,6 @@ function Pokefavoritos() {
 
   // === CLICK HANDLER DELETAR ===
   async function handleClickDeletar(e) {
-    setDeleteFavoritos(!deleteFavoritos);
     const name = e.target.name;
     for (let pokemon of favoritos) {
       if (pokemon.name === name) {
