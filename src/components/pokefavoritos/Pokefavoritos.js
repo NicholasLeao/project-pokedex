@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-function Pokefavoritos() {
+function Pokefavoritos(props) {
   // === STATE ===
   const [favoritos, setFavoritos] = useState([]);
   let pokemonOnScreen = [];
@@ -11,9 +11,11 @@ function Pokefavoritos() {
     const response = await axios.get("https://ironrest.herokuapp.com/pokefav");
     setFavoritos(response.data);
   };
+
   useEffect(() => {
+    console.log("fetch");
     fetchFavoritos();
-  }, []);
+  }, [props.updateFavoritos]);
 
   // === CLICK HANDLER DELETAR ===
   async function handleClickDeletar(e) {

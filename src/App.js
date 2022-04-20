@@ -1,6 +1,5 @@
 import { Routes, Route } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
 import axios from "axios";
 import "./App.css";
 import Pokelist from "./components/pokelist/Pokelist";
@@ -9,6 +8,10 @@ import Searchbar from "./components/searchbar/Searchbar";
 import Pokefavoritos from "./components/pokefavoritos/Pokefavoritos";
 
 function App() {
+  // === TOGGLE STATE TO UPDATE FAVORITOS ===
+  const [updateFavoritos, setUpdateFavoritos] = useState(false);
+  const handleUpdateFavoritos = () => setUpdateFavoritos(!updateFavoritos);
+
   // === STATES ===
   const [pokemonListState, setPokemonListState] = useState([]);
   // === USE EFFECT ===
@@ -30,10 +33,13 @@ function App() {
 
       <Routes>
         <Route path="/" element={null} />
-        <Route path="/pokemon/:PokeName" element={<Pokemon />} />
+        <Route
+          path="/pokemon/:PokeName"
+          element={<Pokemon handleUpdateFavoritos={handleUpdateFavoritos} />}
+        />
       </Routes>
 
-      <Pokefavoritos />
+      <Pokefavoritos updateFavoritos={updateFavoritos} />
     </div>
   );
 }
