@@ -1,6 +1,7 @@
 import "./Pokedex.css";
+import { Routes, Route } from "react-router-dom";
 
-function PokedexContainer() {
+function PokedexContainer(props) {
   return (
     <>
       <div id="pokedex">
@@ -27,9 +28,8 @@ function PokedexContainer() {
               </div>
             </div>
           </div>
-          {/* <!-- Center Screen -->
-       
-        <!-- Bottom Buttons --> */}
+          {/* <!-- Center Screen -->*/
+        /*<!-- Bottom Buttons --> */}
           <div className="buttons-container">
             <div className="upper-buttons-container"></div>
           </div>

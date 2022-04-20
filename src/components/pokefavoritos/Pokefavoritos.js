@@ -48,7 +48,7 @@ function Pokefavoritos(props) {
             }
             // === RETURN DO MAP ===
             return (
-              <li key={pokemonObject.name + String(Math.random())}>
+              <li key={pokemonObject.name + String(Math.random())} className= "listas">
                 <p>
                   <button
                     name={pokemonObject.name}

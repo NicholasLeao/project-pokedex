@@ -15,7 +15,7 @@ function Pokelist(props) {
                       idx + 1
                     }.png`}
                   ></img>
-                  <strong>{currentPokemon.name}</strong>
+                  <strong styles={{fontFamily: 'Press Start 2P'}}>{currentPokemon.name}</strong>
                 </button>
               </Link>
             </li>
